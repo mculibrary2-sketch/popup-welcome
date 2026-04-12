@@ -38,18 +38,53 @@ body {
 }
 
 /* Button styling */
-.close-btn:hover {
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Image brighter */
+#popup img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(1.2); /* makes image brighter */
+}
+
+/* Light overlay (very soft) */
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.15);
+  z-index: 1;
+}
+
+/* Button (bring to front) */
+.close-btn {
   position: absolute;
   bottom: 40px;
   left: 50%;
-  transform: translateX(-50%) scale(1.05);
+  transform: translateX(-50%);
   padding: 14px 30px;
-  background: #082c6c;
+  background: #0b3d91;
   color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 6px;
   font-size: 18px;
+  z-index: 2; /* VERY IMPORTANT */
 }
 </style>
 </head>
