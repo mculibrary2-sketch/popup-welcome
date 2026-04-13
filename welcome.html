@@ -1,161 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-<title>Welcome</title>
+  <title>Welcome</title>
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background: #000;
+    }
 
-/* Fullscreen popup */
-#popup {
-  translateX(-50%) scale(1.05);
-  }
+    /* POPUP CONTAINER */
+    #popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #000;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    /* IMAGE */
+    #popup img {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      display: block;
+      object-fit: contain;
+      filter: brightness(1.1);
+    }
 
-/* Fullscreen image */
-#popup img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
-}
+    /* BUTTON */
+    .close-btn {
+      display: block;
+      width: 80%;
+      max-width: 250px;
+      margin: 15px auto;
+      padding: 12px;
+      background: #0b3d91;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 16px;
+    }
 
-/* Dark overlay (makes text readable) */
-#overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.2);
-}
+    /* MOBILE FIX */
+    @media (max-width: 600px) {
+      #popup {
+        width: 95%;
+        max-height: 85vh;
+      }
 
-/* Button styling */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
+      #popup img {
+        max-height: 60vh;
+      }
 
-#popup { 
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;              /* smaller */
-  max-width: 900px;        /* limit size on desktop */
-  height: auto;
-  max-height: 90vh;        /* prevent full screen */
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-/* Image brighter */
-#popup img {
-  width: 100%;
-  height: auto;
-  max-height: 70vh;   /* VERY IMPORTANT */
-  object-fit: contain;
-  filter: brightness(1.1);
-  display: block;
-}
-  
-/* Light overlay (very soft) */
-#overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.15);
-  z-index: 1;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-#popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Image */
-#popup img {
-  width: 100%;
-  height: 60vh;
-  object-fit: cover;
-  filter: brightness(1.15);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
-/* Overlay */
-#overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.1);
-  z-index: 1;
-}
-
-/* BUTTON (force on top) */
-.close-btn {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 14px 30px;
-  background: #0b3d91;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 6px;
-  font-size: 18px;
-  z-index: 9999; /* FORCE FRONT */
-}
-  @media (max-width: 600px) {
-  .close-btn {
-    bottom: 10px;      /* bring button up */
-    width: 90%;        /* wider button */
-    font-size: 14px;   /* smaller text */
-    padding: 10px;
-  }
-}
-</style>
+      .close-btn {
+        width: 90%;
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="popup">
-  <img src="https://i.postimg.cc/76s8vksk/vc.jpg">
+  <div id="popup">
+    <img src="https://i.postimg.cc/76s8vksk/vc.jpg">
+    
+    <button class="close-btn" onclick="enterSite()">
+      Enter Site
+    </button>
+  </div>
 
-  <div id="overlay"></div>
-
-  <button class="close-btn" onclick="enterSite()">
-    Enter Site
-  </button>
-</div>
-
-<script>
-function enterSite() {
-  window.location.href = "https://sites.google.com/view/mcphersonlibrary/home";
-}
-</script>
+  <script>
+    function enterSite() {
+      window.location.href = "https://sites.google.com/view/mcphersonlibrary/home";
+    }
+  </script>
 
 </body>
 </html>
