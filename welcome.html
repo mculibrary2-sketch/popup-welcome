@@ -44,23 +44,29 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#popup {
+#popup { 
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;              /* smaller */
+  max-width: 900px;        /* limit size on desktop */
+  height: auto;
+  max-height: 90vh;        /* prevent full screen */
   overflow: hidden;
+  border-radius: 10px;
 }
 
 /* Image brighter */
 #popup img {
   width: 100%;
-  height: 100vh;
-  object-fit: cover;
-  filter: brightness(1.2); /* makes image brighter */
+  height: auto;
+  max-height: 70vh;   /* VERY IMPORTANT */
+  object-fit: contain;
+  filter: brightness(1.1);
+  display: block;
 }
-
+  
 /* Light overlay (very soft) */
 #overlay {
   position: absolute;
@@ -89,7 +95,7 @@ body {
 /* Image */
 #popup img {
   width: 100%;
-  height: 100vh;
+  height: 60vh;
   object-fit: cover;
   filter: brightness(1.15);
   position: absolute;
@@ -110,7 +116,7 @@ body {
 /* BUTTON (force on top) */
 .close-btn {
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   padding: 14px 30px;
@@ -121,6 +127,14 @@ body {
   border-radius: 6px;
   font-size: 18px;
   z-index: 9999; /* FORCE FRONT */
+}
+  @media (max-width: 600px) {
+  .close-btn {
+    bottom: 10px;      /* bring button up */
+    width: 90%;        /* wider button */
+    font-size: 14px;   /* smaller text */
+    padding: 10px;
+  }
 }
 </style>
 </head>
